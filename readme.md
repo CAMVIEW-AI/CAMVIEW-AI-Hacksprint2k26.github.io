@@ -204,6 +204,11 @@ pip install deep-sort-realtime
 streamlit run app.py
 ```
 
+### Notion file
+```bash
+https://flash-helmet-d0e.notion.site/CAMVIEW-AI-Enterprise-Traffic-Intelligence-Platform-2eb3e53d4a2c800787bdcfcd2d451c0e
+```
+
 <div align="center">
 
 **© 2026 CAMVIEW.AI** • *Engineering Safety Intelligence by TEAM Unkown Coders*
