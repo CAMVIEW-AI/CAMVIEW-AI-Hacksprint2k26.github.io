@@ -1,0 +1,15 @@
+[submodule "modules/RoadDamageDetector"]
+	path = modules/RoadDamageDetector
+	url = https://github.com/sekilab/RoadDamageDetector.git
+[submodule "modules/WrongWayDetection"]
+	path = modules/WrongWayDetection
+	url = https://github.com/KrishGaur1354/Wrong-Way-Detection
+[submodule "modules/EmergencyDetection"]
+	path = modules/EmergencyDetection
+	url = https://github.com/kaushik-srinivasan/Emergency-Vehicle-Detection-using-Image-Processing
+[submodule "modules/SpeedEstimation"]
+	path = modules/SpeedEstimation
+	url = https://github.com/kardSIM/Vehicle_Speed_Estimation
+[submodule "modules/ReID"]
+	path = modules/ReID
+	url = https://github.com/kHarshit/vehicle-reidentification

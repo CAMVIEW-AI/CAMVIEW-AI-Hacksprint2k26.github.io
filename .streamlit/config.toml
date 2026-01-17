@@ -1,0 +1,11 @@
+[server]
+maxUploadSize = 5120  # 5GB in MB
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#1e3a8a"
+backgroundColor = "#f8fafc"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#1e293b"

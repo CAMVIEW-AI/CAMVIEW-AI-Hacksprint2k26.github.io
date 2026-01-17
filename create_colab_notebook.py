@@ -1,0 +1,122 @@
+import json
+
+notebook = {
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 🚑 Emergency Vehicle Detection Training (YOLOv11)\n",
+    "Run this notebook in Google Colab to train a custom model for Ambulances and Firetrucks."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1. Install Ultralytics & Roboflow\n",
+    "!pip install ultralytics roboflow"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2. Check GPU\n",
+    "import torch\n",
+    "print(f\"CUDA Available: {torch.cuda.is_available()}\")\n",
+    "!nvidia-smi"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 3. Download Dataset from Roboflow\n",
+    "# REPLACE 'YOUR_API_KEY' with your actual Roboflow API Key\n",
+    "from roboflow import Roboflow\n",
+    "\n",
+    "ROBOFLOW_API_KEY = \"YOUR_API_KEY\"  # <--- PASTE KEY HERE\n",
+    "PROJECT_NAME = \"emergency-vehicles\" # You might need to change this specific project name/version\n",
+    "VERSION = 1\n",
+    "\n",
+    "# Example download code (Get this directly from Roboflow 'Export' tab -> 'Format: YOLOv8')\n",
+    "# It usually looks like this:\n",
+    "# rf = Roboflow(api_key=ROBOFLOW_API_KEY)\n",
+    "# project = rf.workspace(\"workspace-name\").project(\"project-name\")\n",
+    "# dataset = project.version(1).download(\"yolov8\")\n",
+    "\n",
+    "# IF YOU DON'T HAVE A KEY, you can upload a 'datasets.zip' manually to the files on the left\n",
+    "# !unzip datasets.zip -d datasets"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 4. Train YOLOv11 Model\n",
+    "from ultralytics import YOLO\n",
+    "\n",
+    "# Load Nano model (Fastest) - change to 'yolo11s.pt' or 'yolo11m.pt' for better accuracy\n",
+    "model = YOLO('yolo11n.pt')\n",
+    "\n",
+    "# Train\n",
+    "# Note: data='path/to/data.yaml' - Roboflow download will define the path usually\n",
+    "# Adjust 'emergency-vehicles-1/data.yaml' to whatever folder was created above\n",
+    "results = model.train(\n",
+    "    data='/content/Emergency-Vehicles-1/data.yaml', \n",
+    "    epochs=50, \n",
+    "    imgsz=640, \n",
+    "    batch=16,\n",
+    "    name='emergency_custom'\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 5. Zip & Download Weights\n",
+    "!zip -r weights.zip runs/detect/emergency_custom/weights\n",
+    "from google.colab import files\n",
+    "files.download('weights.zip')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
+
+with open("emergency_training.ipynb", "w") as f:
+    json.dump(notebook, f, indent=2)
+
+print("Notebook generated: emergency_training.ipynb")
