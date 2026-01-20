@@ -1,0 +1,22 @@
+.prism-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ensure prism doesn't interfere with content */
+.prism-container canvas {
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  filter: hue-rotate(120deg) saturate(1.5) brightness(0.7);
+}
+
+/* Dark theme optimization */
+.about-container {
+  position: relative;
+  z-index: 1;
+}

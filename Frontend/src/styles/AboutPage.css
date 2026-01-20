@@ -1,0 +1,516 @@
+/* Market-Ready About Us Page Styles */
+/* Professional, clean, enterprise-grade visual improvements */
+
+/* ============================================
+   Smooth Theme Transitions
+   ============================================ */
+
+/* About Us specific theme transitions */
+.about-container,
+.about-hero,
+.about-section,
+.magic-bento-card,
+.feature-content,
+.capability-content,
+.arch-content,
+.philosophy-content-inner,
+.cta-section {
+  transition: 
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography transitions */
+.about-section h2,
+.about-section h2::after,
+.feature-content h3,
+.capability-content span,
+.arch-content h3,
+.philosophy-content-inner h3,
+.hero-content h1,
+.hero-subtitle,
+.hero-description {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon transitions */
+.feature-icon,
+.capability-check {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transparent background for main-content in About Us page */
+.main-content {
+  background: transparent !important;
+}
+
+/* Enhanced container with professional spacing */
+.about-container {
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Professional section styling with breathing room */
+.about-section {
+  margin-bottom: 6rem;
+  padding: 3rem 0;
+  position: relative;
+}
+
+/* Subtle section dividers */
+.about-section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -3rem;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(74, 222, 128, 0.2), transparent);
+}
+
+/* Enhanced typography hierarchy */
+.about-section h2 {
+  color: #16a34a;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  position: relative;
+}
+
+/* Subtle heading underline */
+.about-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #16a34a;
+  border-radius: 2px;
+}
+
+/* Professional grid layouts with improved spacing */
+.card-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.magic-bento-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.features-grid.magic-bento-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.capabilities-grid.magic-bento-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.architecture-grid.magic-bento-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.philosophy-content.magic-bento-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Enhanced content styling with better typography */
+.feature-content,
+.capability-content,
+.arch-content,
+.philosophy-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  height: 100%;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Professional card styling */
+.magic-bento-card {
+  border-radius: 16px !important;
+  border: 1px solid rgba(74, 222, 128, 0.3) !important;
+  background: linear-gradient(135deg, #0a0f0a 0%, #0d1a0d 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Subtle card hover effects */
+.magic-bento-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 40px rgba(74, 222, 128, 0.15) !important;
+  border-color: rgba(74, 222, 128, 0.5) !important;
+}
+
+/* Professional border glow effects */
+.magic-bento-card--border-glow::after {
+  border-radius: 16px !important;
+  opacity: 0.6;
+}
+
+.magic-bento-card--border-glow:hover::after {
+  border-radius: 16px !important;
+  opacity: 1;
+}
+
+/* Enhanced typography for card content */
+.feature-content h3,
+.capability-content span,
+.arch-content h3,
+.philosophy-content-inner h3 {
+  color: #16a34a;
+  margin: 1.5rem 0 1rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.feature-content p,
+.arch-content p,
+.philosophy-content-inner p {
+  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.feature-icon {
+  color: #16a34a;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.capability-content {
+  flex-direction: row;
+  gap: 1rem;
+  align-items: flex-start;
+  text-align: left;
+  padding: 2rem;
+}
+
+.capability-check {
+  color: #16a34a;
+  font-weight: bold;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+/* Hero section enhancements */
+.about-hero {
+  padding: 6rem 0 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0a0f0a 0%, #0d1a0d 100%);
+  border-radius: 0 0 2rem 2rem;
+  margin-bottom: 4rem;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #16a34a;
+  margin-bottom: 1rem;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #e2e8f0;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: #94a3b8;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* CTA section enhancements */
+.cta-section {
+  background: linear-gradient(135deg, #0a0f0a 0%, #0d1a0d 100%);
+  border-radius: 2rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.cta-section h2 {
+  color: #16a34a;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.cta-section p {
+  color: #e2e8f0;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-link {
+  color: #16a34a;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.cta-link:hover {
+  border-color: #16a34a;
+}
+
+/* Professional responsive adjustments */
+@media (max-width: 1024px) {
+  .about-container {
+    padding: 0 1.5rem;
+  }
+  
+  .about-section {
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+  }
+  
+  .about-section h2 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .magic-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .about-container {
+    padding: 0 1rem;
+  }
+  
+  .about-section {
+    margin-bottom: 3rem;
+    padding: 1.5rem 0;
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .feature-content,
+  .arch-content,
+  .philosophy-content-inner {
+    padding: 1.5rem;
+  }
+  
+  .capability-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .magic-bento-grid {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .about-section h2 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .feature-content h3,
+  .arch-content h3,
+  .philosophy-content-inner h3 {
+    font-size: 1.125rem;
+  }
+  
+  .feature-content p,
+  .arch-content p,
+  .philosophy-content-inner p {
+    font-size: 0.95rem;
+  }
+  
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+}
+
+/* Print styles for professional documentation */
+@media print {
+  .about-container {
+    max-width: none;
+    padding: 0;
+  }
+  
+  .about-section {
+    margin-bottom: 2rem;
+    page-break-inside: avoid;
+  }
+  
+  .magic-bento-card {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  .feature-content h3,
+  .arch-content h3,
+  .philosophy-content-inner h3 {
+    color: #000 !important;
+  }
+  
+  .feature-content p,
+  .arch-content p,
+  .philosophy-content-inner p {
+    color: #333 !important;
+  }
+}
+
+/* Light Mode Overrides for About Page */
+@media (prefers-color-scheme: light) {
+  .about-container {
+    background: #f9fafb;
+  }
+  
+  .about-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%) !important;
+  }
+  
+  .hero-content h1 {
+    color: #111827 !important;
+  }
+  
+  .hero-subtitle {
+    color: #6b7280 !important;
+  }
+  
+  .hero-description {
+    color: #6b7280 !important;
+  }
+  
+  .about-section h2 {
+    color: #111827 !important;
+  }
+  
+  .about-section h2::after {
+    background: #16a34a !important;
+  }
+  
+  .feature-content h3,
+  .capability-content span,
+  .arch-content h3,
+  .philosophy-content-inner h3 {
+    color: #16a34a !important;
+  }
+  
+  .feature-content p,
+  .arch-content p,
+  .philosophy-content-inner p {
+    color: #6b7280 !important;
+  }
+  
+  .feature-icon {
+    color: #16a34a !important;
+  }
+  
+  .capability-check {
+    color: #16a34a !important;
+  }
+  
+  .cta-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%) !important;
+  }
+  
+  .cta-section h2 {
+    color: #111827 !important;
+  }
+  
+  .cta-section p {
+    color: #6b7280 !important;
+  }
+  
+  .cta-link {
+    color: #16a34a !important;
+  }
+}
+
+html[data-theme='light'] .magic-bento-card {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html[data-theme='light'] .magic-bento-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  border-color: #9ca3af !important;
+}
+
+html[data-theme='light'] .magic-bento-card__header,
+html[data-theme='light'] .magic-bento-card__content,
+html[data-theme='light'] .magic-bento-card__title {
+  color: #111827 !important;
+}
+
+html[data-theme='light'] .magic-bento-card__description {
+  color: #374151 !important;
+}
+
+html[data-theme='light'] .magic-bento-card__label {
+  color: #059669 !important;
+}

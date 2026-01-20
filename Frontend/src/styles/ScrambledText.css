@@ -1,0 +1,42 @@
+.text-block {
+  max-width: 800px;
+  font-family: monospace;
+  font-size: clamp(14px, 4vw, 32px);
+  color: #ffffff !important;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+               0 0 60px rgba(255, 255, 255, 0.8),
+               0 0 90px rgba(255, 255, 255, 0.6);
+  filter: brightness(1.5) contrast(1.2);
+}
+
+/* Light mode - make text dark using data-theme attribute */
+[data-theme="light"] .text-block {
+  color: #000000 !important;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.8),
+               0 0 30px rgba(0, 0, 0, 0.6),
+               0 0 45px rgba(0, 0, 0, 0.4);
+  filter: brightness(1.2) contrast(1.1);
+}
+
+[data-theme="light"] .char {
+  color: #000000 !important;
+}
+
+/* Dark mode - ensure bright white */
+[data-theme="dark"] .text-block {
+  color: #ffffff !important;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+               0 0 60px rgba(255, 255, 255, 0.8),
+               0 0 90px rgba(255, 255, 255, 0.6);
+  filter: brightness(1.5) contrast(1.2);
+}
+
+[data-theme="dark"] .char {
+  color: #ffffff !important;
+}
+
+.char {
+  will-change: transform;
+  display: inline-block;
+  color: #ffffff !important;
+}
