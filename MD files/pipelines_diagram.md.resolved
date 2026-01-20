@@ -1,0 +1,60 @@
+# CAMVIEW.AI - System Architecture & Pipelines
+
+## 🚦 Unified Processing Pipeline
+
+The system uses a **Unified Processor** (Event Loop) that orchestrates purely modular "Specialists" on every frame.
+
+```mermaid
+graph TD
+    Input[Video Source / Camera] --> Processor[Unified Video Processor]
+    
+    subgraph "Detectors (Specialists)"
+        Processor --> |Frame| YOLO[Main YOLOv8 Model]
+        
+        YOLO -- "Detections (Car/Bus/Truck)" --> Special1
+        YOLO -- "Detections (Car)" --> Special2
+        YOLO -- "Detections (Bus/Truck)" --> Special3
+        Processor --> |Frame| Special4
+        
+        Special1[WrongWay Specialist]
+        Special2[Speed Specialist]
+        Special3[Emergency Specialist]
+        Special4[Pothole Specialist]
+        
+        Special1 -- "Tracker + History" --> Event1[Event: WRONG_WAY]
+        Special2 -- "Perspective Transform" --> Event2[Event: OVERSPEED]
+        Special3 -- "Color Heuristic" --> Event3[Event: EMERGENCY_VEHICLE]
+        Special4 -- "Segmentation/Box" --> Event4[Event: POTHOLE]
+    end
+    
+    Event1 --> Bus[Event Bus & Logger]
+    Event2 --> Bus
+    Event3 --> Bus
+    Event4 --> Bus
+    
+    Bus --> UI[Streamlit Dashboard]
+    Bus --> DB[Firebase Database]
+    Bus --> Alert[Terminal / SMS]
+```
+
+## 🧩 Component Logic
+
+1.  **WrongWay Specialist**:
+    *   **Input**: Vehicle Detections (Car/Truck/Bus)
+    *   **Logic**: [CentroidTracker](file:///c:/Users/ahadd/OneDrive/Desktop/CAMVIEW-INTEGRATED/detectors/wrong_way_specialist.py#8-51) tracks ID. `dy (change in Y)` is monitored.
+    *   **Trigger**: If moving `DOWN` (towards camera) vs allowed `UP` -> **ALARM**.
+
+2.  **Emergency Specialist**:
+    *   **Input**: Large Vehicles (Truck/Bus)
+    *   **Logic**: `HSV Color Filter` calculates Red/White pixel ratio.
+    *   **Trigger**: If `Red Ratio > 15%` -> **PRIORITY EVENT**.
+
+3.  **Speed Specialist**:
+    *   **Input**: Vehicle Detections
+    *   **Logic**: `Perspective Transform` maps 2D pixels to Real-world Meters.
+    *   **Trigger**: Calculates `Distance/Time`. If `> 80km/h` -> **WARNING**.
+
+4.  **Pothole Specialist**:
+    *   **Input**: Raw Frame
+    *   **Logic**: Custom `YOLOv8` Model (Training) detected [Pothole](file:///c:/Users/ahadd/Documents/GitHub/CAMVIEW-AI.github-io/detectors/pothole.py#6-53).
+    *   **Trigger**: If area `> 500px` -> **HAZARD**.
