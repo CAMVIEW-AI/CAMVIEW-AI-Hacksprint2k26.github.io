@@ -189,7 +189,7 @@ graph LR
 
 ## 6. Installation & Usage
 
-### 📦 Installation
+### Installation
 ```bash
 git clone https://github.com/your-username/CAMVIEW.AI.git
 cd CAMVIEW-INTEGRATED
